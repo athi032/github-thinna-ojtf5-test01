@@ -15,6 +15,7 @@ class TestUploadFile(unittest.TestCase):
     def test_upload_file_in_python(self):
         driver = self.driver
         driver.get("https://www.w3schools.com/howto/howto_html_file_upload_button.asp")
+        
         self.assertIn("File Upload", driver.title)
         
         element = driver.find_element(By.ID,"myFile")
