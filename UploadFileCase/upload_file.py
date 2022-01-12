@@ -1,0 +1,14 @@
+'''
+Created on Jan 11, 2022
+
+@author: Admin
+'''
+from selenium import webdriver 
+
+driver = webdriver.Chrome(executable_path="E:\\FSoft\\Selenium\\chromedriver_win32\\chromedriver.exe")
+driver.get("https://www.w3schools.com/howto/howto_html_file_upload_button.asp")
+assert "File Upload" in driver.title
+element = driver.find_element_by_id("myFile")
+element.clear()
+element.send_keys("E:\\FSoft\\EIV\\XmasTree.png") 
+driver.close()
