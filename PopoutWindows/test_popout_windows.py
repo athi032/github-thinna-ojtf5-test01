@@ -14,20 +14,28 @@ class TestPopoutWindow(unittest.TestCase):
 
     def test_popout_window_in_python(self):
         driver = self.driver
-        driver.get("http://demo.guru99.com/popup.php")
-        driver.maximize_window()
+        driver.get("https://www.encodedna.com/javascript/demo/open-new-window-using-javascript-method.htm")
+        
+        self.assertIn("Open a New Browser Window", driver.title)
+        #driver.maximize_window()
         
         main_page = driver.current_window_handle
         
-        driver.find_element(By.XPATH, "//*[contains(@href,'popup.php')]").click()
+        driver.find_element(By.XPATH, '//*[@id="content"]/div[3]/p[2]/input[1]').click()
         
         for handle in driver.window_handles:
             if handle != main_page:
-                new_page = handle
-                driver.switch_to.window(new_page)
-                driver.find_element(By.NAME,'emailid').send_keys("blue0703t@gmail.com")
-                driver.find_element(By.NAME,"btnLogin").click()
-                driver.close() 
+                new_window = handle
+                
+                driver.switch_to.window(new_window)                
+                self.assertIn("Open a New Window using JavaScript window.open()", driver.title)
+                
+                driver.get("http://www.google.com/")
+                self.assertIn("Google", driver.title)
+                
+                driver.switch_to.window(main_page)
+                self.assertIn("Open a New Browser Window", driver.title) 
+                #driver.close() 
                 
         driver.switch_to.window(main_page)
         
