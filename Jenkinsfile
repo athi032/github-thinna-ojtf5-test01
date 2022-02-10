@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
-        }
         stage('Build') {
             steps {
                 echo 'Building'
@@ -22,9 +17,9 @@ pipeline {
                 echo 'Testing'
             }
         }
-        stage('Release') {
+        stage('Run Selenium Tests') {
             steps {
-                echo 'Releasing'
+                echo 'Run Selenium Tests'
             }
         }
     }
