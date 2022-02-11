@@ -20,7 +20,7 @@ pipeline {
         stage('Run Selenium Tests') {
             steps {
                 echo 'Run Selenium Tests'
-                sh 'python test_iframe.py'
+                bat 'python IframeCase/test_iframe.py'
             }
         }
     }
