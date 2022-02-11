@@ -12,7 +12,7 @@ import time
 
 class TestIframe(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome(executable_path="E:\\FSoft\\Selenium\\chromedriver_win32\\chromedriver.exe")
+        self.driver = webdriver.Chrome()
         
     def test_iframe_in_python(self):
         driver = self.driver
