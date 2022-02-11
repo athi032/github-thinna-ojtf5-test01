@@ -16,6 +16,7 @@ class TestIframe(unittest.TestCase):
         
     def test_iframe_in_python(self):
         driver = self.driver
+        driver.maximize_window()
         driver.get("https://www.w3schools.com/html/html_iframe.asp") 
         
         self.assertIn("Iframe", driver.title)
